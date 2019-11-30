@@ -17,6 +17,7 @@ window.onload = function () {
 
         fill_tip: function(){
        		if(globalInf.tip == true){
+                envir.font = "20pt Microsoft JhengHei";
        			envir.fillText("press ↑", myWidth/2, myHeight/2);
        		}	        	
         }
@@ -132,17 +133,17 @@ window.onload = function () {
 	//排行榜
 	var rankingList = {
 
-		rowSpace:20,
-		colSpace:100,
-		nameSpace:70,
-		scoreSpace:40,
-		quantity:5,
+		rowSpace:40,
+		colSpace:230,
+		nameSpace:170,
+		scoreSpace:80,
+		quantity:3,
 
 		color:"green",
 
-		head:["1st:", "2nd:" , "3rd:", "4th:", "5th:"],
-		name:["***", "***", "***", "***", "***"],
-		score:["***", "***", "***", "***", "***"],
+		head:["1st:", "2nd:" , "3rd:"],
+		name:["lippon", "***", "***"],
+		score:["999", "***", "***"],
 
 		draw: function(){
 			envir.fillStyle = rankingList.color;
@@ -159,8 +160,8 @@ window.onload = function () {
 		envir.fillStyle = "green";	
         envir.fillRect(obstacle1.x, obstacle1.y, obstacle1.width, obstacle1.height);
         envir.fillRect(obstacle2.x, obstacle2.y, obstacle2.width, obstacle2.height);
-        envir.fillText("score:", 10, 20);
-        envir.fillText(globalInf.score, 50, 20);
+        envir.fillText("score:", 30, 40);
+        envir.fillText(globalInf.score, 120, 40);
 	}
 
 	function obstacle_init(){
@@ -211,7 +212,7 @@ window.onload = function () {
     }
 
     function game_over(){
-       	window.alert("game over");
+       	window.alert("game over!\n 你的得分：" + String(globalInf.score) + "\n低于" + String((1000 - globalInf.score)/10-1) + "%的人");
    		game_init();
     }
 
@@ -263,16 +264,18 @@ window.onload = function () {
     
     var c=document.getElementById("myCanvas");
 
-    // document.getElementById("goUp").addEventListener("mousedown",function(){
-    //     keyBuf[keyCode.up] = true;
-    // });
+    document.getElementById("goUp").addEventListener("mousedown",function(){
+        keyBuf[keyCode.up] = true;
+        globalInf.tip = false;
+    });
 
-    // document.getElementById("goUp").addEventListener("mouseup",function(){
-    //     keyBuf[keyCode.up] = false;
-    // });
+    document.getElementById("goUp").addEventListener("mouseup",function(){
+        keyBuf[keyCode.up] = false;
+    });
 
     document.getElementById("goUp").addEventListener("touchstart",function(){
         keyBuf[keyCode.up] = true;
+        globalInf.tip = false;
     });
 
     document.getElementById("goUp").addEventListener("touchend",function(){
