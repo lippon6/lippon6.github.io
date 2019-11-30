@@ -1,4 +1,5 @@
-window.onload = function(){
+
+window.onload = function () {
     var keyCode = {"left": "37", "right": "39", "up": "38", "down": "40"};
     var keyBuf = {};
     var myHeight = 600, myWidth = 400;
@@ -29,6 +30,16 @@ window.onload = function(){
         y: myHeight * 3/4,
         width:50,
         height:50,
+        timeAdd: 0.05,
+        score: 0,
+        tip: true,
+    };
+
+    var plane = {
+        x: myWidth / 2,
+        y: myHeight * 3 / 4,
+        width: 50,
+        height: 50,
         speedX: 0,
         speedY: 0,
         speedMax: 150,
@@ -95,7 +106,6 @@ window.onload = function(){
         this.width = width;
         this.height = height;
         this.beginPos = beginPos;
-
     }
 
 
@@ -143,9 +153,7 @@ window.onload = function(){
 				envir.fillText(rankingList.score[i], myWidth - rankingList.scoreSpace, (i+1) * rankingList.rowSpace);
 			}
 		}
-
 	}
-
 
 	function fill_obstacle(){
 		envir.fillStyle = "green";	
@@ -161,7 +169,6 @@ window.onload = function(){
 		    obstacle2.y = Math.random() * obstacle2.beginPos;			
 		}
 		while(Math.abs(obstacle1.y - obstacle2.y) <　100);
-
 	}
 
 	function obstacle_move(){
@@ -195,9 +202,6 @@ window.onload = function(){
         	
 	}
 
-
-
-
     function game_init(){
         delete keyBuf[keyCode.up];
         plane.init();
@@ -210,7 +214,6 @@ window.onload = function(){
        	window.alert("game over");
    		game_init();
     }
-
 
     function update(){
         (function sys_init(){
@@ -235,11 +238,8 @@ window.onload = function(){
         }());
 
         (function step(){
-
             plane.move();
             obstacle_move();
-
-
         }());
 
         (function hit_check(){
@@ -251,7 +251,6 @@ window.onload = function(){
                 }
             }
 
-
             if((obstacle2.x-plane.x) < 0 && (plane.x-obstacle2.x) < (obstacle2.width +　plane.width/2)){
                 if((obstacle2.y-plane.y) < 0 && (plane.y-obstacle2.y) < (obstacle2.height + plane.height/2)){
                     game_over();
@@ -260,10 +259,18 @@ window.onload = function(){
                 }
             }
         }());
-        
     };
     
     var c=document.getElementById("myCanvas");
+
+    document.getElementById("goUp").addEventListener("mousedown",function(){
+        keyBuf[keyCode.up] = true;
+    });
+
+    document.getElementById("goUp").addEventListener("mouseup",function(){
+        keyBuf[keyCode.up] = false;
+    });
+
 
     addEventListener("keydown", function(e){
         keyBuf[e.keyCode] = true;
