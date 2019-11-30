@@ -263,11 +263,19 @@ window.onload = function () {
     
     var c=document.getElementById("myCanvas");
 
-    document.getElementById("goUp").addEventListener("mousedown",function(){
+    // document.getElementById("goUp").addEventListener("mousedown",function(){
+    //     keyBuf[keyCode.up] = true;
+    // });
+
+    // document.getElementById("goUp").addEventListener("mouseup",function(){
+    //     keyBuf[keyCode.up] = false;
+    // });
+
+    document.getElementById("goUp").addEventListener("touchstart",function(){
         keyBuf[keyCode.up] = true;
     });
 
-    document.getElementById("goUp").addEventListener("mouseup",function(){
+    document.getElementById("goUp").addEventListener("touchend",function(){
         keyBuf[keyCode.up] = false;
     });
 
