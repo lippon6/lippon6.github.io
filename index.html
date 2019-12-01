@@ -16,22 +16,27 @@
 </head>
 
 <body>
-        <img src="images/plane.png" id="plane1" style="display:none;" />
-        <canvas id="myCanvas" style="-webkit-user-select:auto;"></canvas>
-        <div class="container">
-            <footer class="site-footer">
-                <p class="powered-by">
-                    ©2019 created by lippon
-                    <span class="float-right" aria-hidden="true">
-                        <a href="#" id="back_to_top">
-                            <span class="button_icon">
-                                <i class="fas fa-chevron-up fa-2x"></i>
-                            </span>
-                        </a>
-                    </span>
-                </p>
-            </footer>
-        </div>
+    <img src="images/plane.png" id="plane1" style="display:none;" />
+    <canvas id="myCanvas" style="
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select:none;	
+     "></canvas>
+    <div class="container">
+        <footer class="site-footer">
+            <p class="powered-by">
+                ©2019 created by lippon version0.1
+                <span class="float-right" aria-hidden="true">
+                    <a href="#" id="back_to_top">
+                        <span class="button_icon">
+                            <i class="fas fa-chevron-up fa-2x"></i>
+                        </span>
+                    </a>
+                </span>
+            </p>
+        </footer>
+    </div>
 
     <script>
         document.body.addEventListener('touchstart', function () { });
