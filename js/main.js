@@ -18,12 +18,10 @@ window.onload = function () {
         fill_tip: function(){
        		if(globalInf.tip == true){
                 envir.font = "20pt Microsoft JhengHei";
-       			envir.fillText("press ↑", myWidth/2, myHeight/2);
+       			envir.fillText("press!", myWidth/2 - 30, myHeight/2);
        		}	        	
         }
     };
-
-
 
     //玩家控制体
     var plane = {
@@ -264,21 +262,21 @@ window.onload = function () {
     
     var c=document.getElementById("myCanvas");
 
-    document.getElementById("goUp").addEventListener("mousedown",function(){
+    document.getElementById("myCanvas").addEventListener("mousedown",function(){
         keyBuf[keyCode.up] = true;
         globalInf.tip = false;
     });
 
-    document.getElementById("goUp").addEventListener("mouseup",function(){
+    document.getElementById("myCanvas").addEventListener("mouseup",function(){
         keyBuf[keyCode.up] = false;
     });
 
-    document.getElementById("goUp").addEventListener("touchstart",function(){
+    document.getElementById("myCanvas").addEventListener("touchstart",function(){
         keyBuf[keyCode.up] = true;
         globalInf.tip = false;
     });
 
-    document.getElementById("goUp").addEventListener("touchend",function(){
+    document.getElementById("myCanvas").addEventListener("touchend",function(){
         keyBuf[keyCode.up] = false;
     });
 
